@@ -1,0 +1,58 @@
+﻿<UserControl x:Class="SmartEdir.ChatUserControl.UserControlChat"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SmartEdir.ChatUserControl"
+             mc:Ignorable="d"              
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             Height="480" Width="774">
+    <materialDesign:TransitioningContent x:Name="TrainsitionigContentSlide" OpeningEffect="{materialDesign:TransitionEffect SlideInFromRight, Duration=0:0:1.4}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Vertical" Background="LightGray" Opacity="0.8">
+                <TextBox Name="SearchText" materialDesign:HintAssist.Hint="Search here" Width="200" Margin="0 5 0 5" Foreground="#707070" Padding="2" FontSize="13" KeyUp="SearchText_KeyUp"/>
+                <ListView Name="ListViewMenu"   ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Auto"  ScrollViewer.CanContentScroll="False" SelectionChanged="ListViewMenu_SelectionChanged">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" Margin="10 0">
+                                <Ellipse Name="ProfileImageButton" Height="50" Width="50" VerticalAlignment="Top" HorizontalAlignment="Right" Stroke="White" PreviewMouseDown="ProfileImageButton_PreviewMouseDown">
+                                    <Ellipse.Fill>
+                                        <ImageBrush x:Name="ProfileImage" ImageSource="{Binding Image}" Stretch="UniformToFill"/>
+                                    </Ellipse.Fill>
+                                </Ellipse>
+                                <StackPanel Orientation="Vertical" Margin="20 0 0 0">
+                                    <TextBlock Foreground="White" Text="{Binding Name}" FontSize="15" Margin="0 10 0 0"  VerticalAlignment="Top"/>
+                                    <materialDesign:Badged Badge="{Binding New}" Margin="0 13 10 0" HorizontalAlignment="Right"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackPanel>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" >
+                    <StackPanel Orientation="Vertical" Grid.Row="0" Name="StackPannelMain" VerticalAlignment="Bottom" Margin="0 0 10 15">
+                        <StackPanel Margin="0 0 0 180">
+                            <TextBlock Text="Smart Edir Chat Panel" Foreground="LightGray" FontSize="23" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 7"/>
+                            <TextBlock Text="Select Account To Chat" Foreground="#039be5" FontSize="13" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </StackPanel>
+                </ScrollViewer>
+                <StackPanel Grid.Row="1" Orientation="Horizontal" Background="#039be5" >
+                    <TextBox Name="Message" Foreground="White" FontSize="17" Padding="3 0 0 2" Width="370" BorderBrush="#039be5" materialDesign:HintAssist.Hint="Enter Message" Margin="20 0 25 0"/>
+                    <TextBlock Name="Send" Text="SEND" PreviewMouseDown="Send_PreviewMouseDown" VerticalAlignment="Center" Foreground="White" FontSize="21" FontWeight="Bold" Cursor="Hand"/>
+                </StackPanel>
+            </Grid>
+            
+        </Grid>
+        
+    </materialDesign:TransitioningContent>
+</UserControl>

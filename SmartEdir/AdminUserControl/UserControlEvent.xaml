@@ -1,0 +1,100 @@
+﻿<UserControl x:Class="SmartEdir.AdminUserControl.UserControlEvent"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SmartEdir.AdminUserControl"
+             mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             Height="auto" Width="1024">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type TextBlock}" x:Key="WrapText">
+            <Setter Property="TextWrapping" Value="Wrap"/>
+        </Style>
+    </UserControl.Resources>
+    <materialDesign:TransitioningContent x:Name="TrainsitionigContentSlide" OpeningEffect="{materialDesign:TransitionEffect SlideInFromRight, Duration=0:0:1.4}">
+        <Grid Name="GridEvent">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="250"/>
+            </Grid.ColumnDefinitions>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" Orientation="Horizontal">
+                    <TextBlock Text="Notify Events" Foreground="#FF3580BF" FontSize="30" FontWeight="Bold" Margin="5"/>
+                    <StackPanel Orientation="Horizontal" Margin="170 0 0 0">
+                        <TextBox Name="SearchText" materialDesign:HintAssist.Hint="Search here" Width="250" Margin="5 5 30 5" Foreground="#707070" Padding="3" FontSize="15" KeyUp="SearchText_KeyUp"/>
+                        <materialDesign:PackIcon Name="ExportToExell" Kind="FileExcel" Height="40" Width="60" VerticalAlignment="Center" Foreground="#7c0426" Cursor="Hand" PreviewMouseDown="ExportToExell_PreviewMouseDown"/>
+                        <TextBlock Text="To Excell" VerticalAlignment="Bottom" Margin="-10 0 0 6" Foreground="#7c0426"/>
+                    </StackPanel >
+
+                </StackPanel>
+                <Grid Grid.Row="1">
+                    <DataGrid Name="EventDataGrid"  Margin="5 20 5 5" Background="{x:Null}" BorderBrush="{x:Null}" IsReadOnly="True"
+                              Foreground="#FF042263" VerticalGridLinesBrush="#FF888888" SelectionChanged="EventDataGrid_SelectionChanged">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn x:Name="IDColumn" Header="ID" Width="70" Binding="{Binding Id}">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="HorizontalAlignment" Value="Left"/>
+                                        <Setter Property="VerticalAlignment" Value="Center"/>
+                                        <Setter Property="Padding" Value="5"/>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                                <DataGridTextColumn.CellStyle>
+                                    <Style TargetType="DataGridCell">
+                                        <Setter Property="Background" Value="#2e61af"/>
+                                        <Setter Property="BorderThickness" Value="5,0,0,0"/>
+                                        <Setter Property="BorderBrush" Value="#FF134287"/>
+                                        <Setter Property="Foreground" Value="White"/>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsSelected" Value="True">
+                                                <Setter Property="Background" Value="#FF134287"/>
+                                                <Setter Property="BorderThickness" Value="5,0,0,0"/>
+                                                <Setter Property="BorderBrush" Value="White"/>
+                                                <Setter Property="Foreground" Value="White"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </DataGridTextColumn.CellStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn x:Name="EventDateColumn" Header="Event Date" Width="140" Binding="{Binding EventDate}"/>
+                            <DataGridTextColumn x:Name="EventAddressColumn" Header="Event Address" Width="140" Binding="{Binding EventAddress}"/>
+                            <DataGridTextColumn x:Name="EventDetialColumn" Header="Event Detail" Width="*" Binding="{Binding EventDetail}" ElementStyle="{StaticResource WrapText}"/>
+                        </DataGrid.Columns>
+
+                    </DataGrid>
+
+                </Grid>
+            </Grid>
+            <Grid Grid.Column="1" Background="#7c0426" Grid.ColumnSpan="2">
+                <StackPanel Margin="0 0 0 15">
+                    <TextBlock Text="EVENT NOTIFICATION" Margin="0 20 0 0" Foreground="White" FontSize="17" FontFamily="Nirmala UI Semilight" Padding="4" HorizontalAlignment="Center"/>
+                    <Separator Opacity="0.59" Margin="10 0"/>
+                    <TextBlock Text="UPCOMING EVENT INFORMATION" Foreground="White" Margin="10 10 0 0" FontSize="11"/>
+                    <!--Event Date-->
+                    <TextBlock Text="Event Date" Foreground="White" Margin="10 25 0 3" FontSize="11"/>
+                    <DatePicker Name="EventDate" materialDesign:HintAssist.Hint="MM/dd/yyyy" Foreground="Gray" Background="White" Margin="10 0 10 0" Padding="7" FontSize="15" KeyUp="EventDate_KeyUp" SelectedDateChanged="EventDate_SelectedDateChanged"/>
+                    <TextBlock Name="EDErr" Visibility="Hidden" Text="Name Must Be Atleast 5 Letter" Foreground="White" Margin="10 0 0 5" FontSize="10"/>
+                    <!--Event Adress-->
+                    <TextBlock Text="Event Adress" Foreground="White" Margin="10 10 0 5" FontSize="11"/>
+                    <TextBox Name="EventAdress" Background="White" Foreground="Gray" Margin="10 0" Padding="1" FontSize="15" KeyUp="EventAdress_KeyUp"/>
+                    <TextBlock Name="EAErr" Visibility="Hidden" Text="Name Must Be Atleast 5 Letter" Foreground="White" Margin="10 0 0 5" FontSize="10"/>
+                    <!--Event Detail-->
+                    <TextBlock Text="Event Detail" Foreground="White" Margin="10 5 0 3" FontSize="11"/>
+                    <TextBox Name="EventDetail" Background="White" Foreground="Gray" Height="200" TextWrapping="Wrap" AcceptsReturn="True" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Margin="10 0" Padding="1" FontSize="15" KeyUp="EventDetail_KeyUp"/>
+                    <TextBlock Name="EVDErr" Visibility="Hidden" Text="Name Must Be Atleast 5 Letter" Foreground="White" Margin="10 0 0 5" FontSize="10"/>
+                    
+                    <StackPanel Orientation="Horizontal" Margin="10 15 0 3">
+                        <Button Name="UpdateButton" Background="White" BorderBrush="#7c0426" Foreground="#7c0246" Content="Update" Margin="0 0 5 0" Click="UpdateButton_Click"/>
+                        <Button Name="DeleteButton" Background="#ff0000" BorderBrush="#7c0426" Foreground="white" Content="Delete" Margin="0 0 5 0" Click="DeleteButton_Click"/>
+                        <Button Name="SaveButton" Background=" #0aa405" BorderBrush="#7c0426" Foreground="white" Content="Save" Margin="0 0 5 0" Click="SaveButton_Click"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </materialDesign:TransitioningContent>
+</UserControl>

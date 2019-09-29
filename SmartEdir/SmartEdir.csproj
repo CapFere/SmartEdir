@@ -1,0 +1,408 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5A2B7F50-1950-46F4-9BAD-F7D807AAB64B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>SmartEdir</RootNamespace>
+    <AssemblyName>SmartEdir</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\logo-icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MaterialDesignColors, Version=1.0.0.14576, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.1.1.1\lib\net45\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=2.5.0.1205, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.2.5.0.1205\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.13.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="SautinSoft.Document, Version=3.6.12.4, Culture=neutral, PublicKeyToken=e759c76c7515592a, processorArchitecture=MSIL">
+      <HintPath>..\packages\sautinsoft.document.3.6.12.4\lib\net461\SautinSoft.Document.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="AdminUserControl\UserControlAccount.xaml.cs">
+      <DependentUpon>UserControlAccount.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUserControl\UserControlEvent.xaml.cs">
+      <DependentUpon>UserControlEvent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUserControl\UserControlMaintenance.xaml.cs">
+      <DependentUpon>UserControlMaintenance.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUserControl\UserControlMaterial.xaml.cs">
+      <DependentUpon>UserControlMaterial.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUserControl\UserControlMember.xaml.cs">
+      <DependentUpon>UserControlMember.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUserControl\UserControlPayment.xaml.cs">
+      <DependentUpon>UserControlPayment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUserControl\UserControlSingleFacility.xaml.cs">
+      <DependentUpon>UserControlSingleFacility.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChatUserControl\UserControlChat.xaml.cs">
+      <DependentUpon>UserControlChat.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChatUserControl\UserControlChatAdmin.xaml.cs">
+      <DependentUpon>UserControlChatAdmin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChatUserControl\UserControlMessageBubble.xaml.cs">
+      <DependentUpon>UserControlMessageBubble.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChatUserControl\UserControlPlaceHolder.xaml.cs">
+      <DependentUpon>UserControlPlaceHolder.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DBContext\ChatDBContext.cs" />
+    <Compile Include="DBContext\EventDBContext.cs" />
+    <Compile Include="DBContext\MaintenanceDBContext.cs" />
+    <Compile Include="DBContext\MaterialDBContext.cs" />
+    <Compile Include="DBContext\MemberDBContext.cs" />
+    <Compile Include="DBContext\PaymentDBContext.cs" />
+    <Compile Include="DBContext\RequestDBContext.cs" />
+    <Compile Include="DBContext\SessionDBContext.cs" />
+    <Compile Include="DBContext\User.cs" />
+    <Compile Include="DBContext\UserDBContext.cs" />
+    <Compile Include="DBContext\YearDBContext.cs" />
+    <Compile Include="DialogBoxs\UserControlApproved.xaml.cs">
+      <DependentUpon>UserControlApproved.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DialogBoxs\UserControlDeclined.xaml.cs">
+      <DependentUpon>UserControlDeclined.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUserControl\UserControlFacility.xaml.cs">
+      <DependentUpon>UserControlFacility.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DialogBoxs\WindowConfirmation.xaml.cs">
+      <DependentUpon>WindowConfirmation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DialogBoxs\WindowDetail.xaml.cs">
+      <DependentUpon>WindowDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DialogBoxs\WindowError.xaml.cs">
+      <DependentUpon>WindowError.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DialogBoxs\WindowSuccess.xaml.cs">
+      <DependentUpon>WindowSuccess.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DialogBoxs\WindowUpdate.xaml.cs">
+      <DependentUpon>WindowUpdate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MemberUserControl\UserControlEvent.xaml.cs">
+      <DependentUpon>UserControlEvent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MemberUserControl\UserControlFacility.xaml.cs">
+      <DependentUpon>UserControlFacility.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MemberUserControl\UserControlNotification.xaml.cs">
+      <DependentUpon>UserControlNotification.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MemberUserControl\UserControlPayment.xaml.cs">
+      <DependentUpon>UserControlPayment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MemberUserControl\UserControlSingleEvent.xaml.cs">
+      <DependentUpon>UserControlSingleEvent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlProfile.xaml.cs">
+      <DependentUpon>UserControlProfile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowAdmin.xaml.cs">
+      <DependentUpon>WindowAdmin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowMember.xaml.cs">
+      <DependentUpon>WindowMember.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowProfile.xaml.cs">
+      <DependentUpon>WindowProfile.xaml</DependentUpon>
+    </Compile>
+    <Page Include="AdminUserControl\UserControlAccount.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdminUserControl\UserControlEvent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdminUserControl\UserControlMaintenance.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdminUserControl\UserControlMaterial.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdminUserControl\UserControlMember.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdminUserControl\UserControlPayment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdminUserControl\UserControlSingleFacility.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ChatUserControl\UserControlChat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ChatUserControl\UserControlChatAdmin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ChatUserControl\UserControlMessageBubble.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ChatUserControl\UserControlPlaceHolder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogBoxs\UserControlApproved.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogBoxs\UserControlDeclined.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdminUserControl\UserControlFacility.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogBoxs\WindowConfirmation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogBoxs\WindowDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogBoxs\WindowError.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogBoxs\WindowSuccess.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogBoxs\WindowUpdate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="MemberUserControl\UserControlEvent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MemberUserControl\UserControlFacility.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MemberUserControl\UserControlNotification.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MemberUserControl\UserControlPayment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MemberUserControl\UserControlSingleEvent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlProfile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowAdmin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowMember.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowProfile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Assets\certeficate.pdf" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\welcome.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\back.jpg" />
+    <Resource Include="Assets\pexels-photo-247885.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\pexels-photo-374592.jpeg" />
+    <Resource Include="Assets\pexels-photo-701026.jpeg" />
+    <Resource Include="Assets\pexels-photo-701337.jpeg" />
+    <Resource Include="Assets\pexels-photo-701449.jpeg" />
+    <Resource Include="Assets\pexels-photo-701762.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\log-1.png" />
+    <Resource Include="Assets\logo-2.png" />
+    <Resource Include="Assets\logo-3.png" />
+    <None Include="Resources\logo-3.png" />
+    <None Include="Resources\logo-icon.ico" />
+    <Content Include="SessionDB.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SessionDB_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>SessionDB.mdf</DependentUpon>
+    </Content>
+    <Resource Include="Assets\images.jpg" />
+    <Resource Include="Assets\send.png" />
+    <Content Include="Assets\Spinner.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

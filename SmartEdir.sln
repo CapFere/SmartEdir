@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartEdir", "SmartEdir\SmartEdir.csproj", "{5A2B7F50-1950-46F4-9BAD-F7D807AAB64B}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SmartEdirSetup", "SmartEdirSetup\SmartEdirSetup.vdproj", "{002CC192-8FE6-484C-AC7E-66CE5D6C49B2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5A2B7F50-1950-46F4-9BAD-F7D807AAB64B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A2B7F50-1950-46F4-9BAD-F7D807AAB64B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A2B7F50-1950-46F4-9BAD-F7D807AAB64B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A2B7F50-1950-46F4-9BAD-F7D807AAB64B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{002CC192-8FE6-484C-AC7E-66CE5D6C49B2}.Debug|Any CPU.ActiveCfg = Debug
+		{002CC192-8FE6-484C-AC7E-66CE5D6C49B2}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DB09D83B-2CB3-4F73-BE08-2E57979BE7B0}
+	EndGlobalSection
+EndGlobal

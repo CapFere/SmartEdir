@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="SmartEdir.MemberUserControl.UserControlNotification"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SmartEdir.MemberUserControl"
+             mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             Height="550" Width="774">
+    <materialDesign:TransitioningContent x:Name="TrainsitionigContentSlide" OpeningEffect="{materialDesign:TransitionEffect SlideInFromRight, Duration=0:0:1.4}">
+        <Grid Name="GridNotification">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0">
+                <TextBlock Text="Notifications" Foreground="#FF3580BF" FontSize="25" FontWeight="Bold" Margin="5"/>
+            </StackPanel>
+            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" VerticalAlignment="Top">
+                <WrapPanel Name="NotificationPannel" Orientation="Horizontal" Margin="0 20 0 0" HorizontalAlignment="Center">
+
+                </WrapPanel>
+            </ScrollViewer>
+
+        </Grid>
+    </materialDesign:TransitioningContent>
+</UserControl>

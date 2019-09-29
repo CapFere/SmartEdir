@@ -1,0 +1,111 @@
+﻿<UserControl x:Class="SmartEdir.AdminUserControl.UserControlMaintenance"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SmartEdir.AdminUserControl"
+             mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             Height="auto" Width="1024">
+    <materialDesign:TransitioningContent x:Name="TrainsitionigContentSlide" OpeningEffect="{materialDesign:TransitionEffect SlideInFromRight, Duration=0:0:1.4}">
+        <Grid Name="GirdMaintenance">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="250"/>
+            </Grid.ColumnDefinitions>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" Orientation="Horizontal">
+                    <TextBlock Text="Maintenance" Foreground="#FF3580BF" FontSize="30" FontWeight="Bold" Margin="5"/>
+                    <StackPanel Orientation="Horizontal" Margin="170 0 0 0">
+                        <TextBox Name="SearchText" materialDesign:HintAssist.Hint="Search here" Width="250" Margin="5 5 30 5" Foreground="#707070" Padding="3" FontSize="15" KeyUp="SearchText_KeyUp"/>
+                        <materialDesign:PackIcon Name="ExportToExell" Kind="FileExcel" Height="40" Width="60" VerticalAlignment="Center" Foreground="#7c0426" Cursor="Hand" PreviewMouseDown="ExportToExell_PreviewMouseDown"/>
+                        <TextBlock Text="To Excell" VerticalAlignment="Bottom" Margin="-10 0 0 6" Foreground="#7c0426"/>
+                    </StackPanel >
+
+                </StackPanel>
+                <Grid Grid.Row="1">
+                    <DataGrid Name="MaintenanceDataGrid"  Margin="5 20 5 5" Background="{x:Null}" BorderBrush="{x:Null}" IsReadOnly="True"
+                              Foreground="#FF042263" VerticalGridLinesBrush="#FF888888" SelectionChanged="MaintenanceDataGrid_SelectionChanged">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn x:Name="IDColumn" Header="ID" Width="70" Binding="{Binding Id}">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="HorizontalAlignment" Value="Left"/>
+                                        <Setter Property="VerticalAlignment" Value="Center"/>
+                                        <Setter Property="Padding" Value="5"/>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                                <DataGridTextColumn.CellStyle>
+                                    <Style TargetType="DataGridCell">
+                                        <Setter Property="Background" Value="#2e61af"/>
+                                        <Setter Property="BorderThickness" Value="5,0,0,0"/>
+                                        <Setter Property="BorderBrush" Value="#FF134287"/>
+                                        <Setter Property="Foreground" Value="White"/>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsSelected" Value="True">
+                                                <Setter Property="Background" Value="#FF134287"/>
+                                                <Setter Property="BorderThickness" Value="5,0,0,0"/>
+                                                <Setter Property="BorderBrush" Value="White"/>
+                                                <Setter Property="Foreground" Value="White"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </DataGridTextColumn.CellStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn x:Name="MaterialIdNameColumn" Header="Material ID" Width="140" Binding="{Binding MaterialId}"/>
+                            <DataGridTextColumn x:Name="MaterialNameColumn" Header="Material Name" Width="140" Binding="{Binding MaterialName}"/>
+                            <DataGridTextColumn x:Name="TypeNameColumn" Header="Material Type" Width="140" Binding="{Binding MaterialType}"/>
+                            <DataGridTextColumn x:Name="CostDateNameColumn" Header="Maintenance Cost" Width="140" Binding="{Binding MaintenanceCost}"/>
+                            <DataGridTextColumn x:Name="MaintenanceDateColumn" Header="Maintenance Date" Width="130" Binding="{Binding MaintenanceDate}"/>
+                        </DataGrid.Columns>
+
+                    </DataGrid>
+
+                </Grid>
+            </Grid>
+            <Grid Grid.Column="1" Background="#7c0426" Grid.ColumnSpan="2">
+                <StackPanel Margin="0 0 0 15">
+                    <TextBlock Text="MAINTENACE REGISTRATION" Margin="0 20 0 0" Foreground="White" FontSize="17" FontFamily="Nirmala UI Semilight" Padding="4" HorizontalAlignment="Center"/>
+                    <Separator Opacity="0.59" Margin="10 0"/>
+                    <TextBlock Text="MATERIAL INFORMATION" Foreground="White" Margin="10 10 0 0" FontSize="11"/>
+                    <!--Material Id-->
+                    <TextBlock Text="Material Id" Foreground="White" Margin="10 10 0 5" FontSize="11"/>
+                    <TextBox Name="MaterialId" Background="White" Foreground="Gray" Margin="10 0" Padding="1" FontSize="15" KeyUp="MaterialId_KeyUp"/>
+                    <TextBlock Name="MIDErr" Visibility="Hidden" Text="Name Must Be Atleast 5 Letter" Foreground="White" Margin="10 0 0 5" FontSize="10"/>
+                    <!--Material Name-->
+                    <TextBlock Text="Material Name" Foreground="White" Margin="10 5 0 3" FontSize="11"/>
+                    <TextBox Name="MaterialName" Background="White" Foreground="Gray" Margin="10 0" Padding="1" FontSize="15" KeyUp="MaterialName_KeyUp"/>
+                    <TextBlock Name="MNErr" Visibility="Hidden" Text="Name Must Be Atleast 5 Letter" Foreground="White" Margin="10 0 0 5" FontSize="10"/>
+                    <!--Material Type-->
+                    <TextBlock Text="Material Type" Foreground="White" Margin="10 6 0 3" FontSize="11"/>
+                    <ComboBox Name="MaterialType" Foreground="Gray" Background="White" Margin="10 0 10 30" Padding="7" FontSize="15" SelectedIndex="0">
+                        <ComboBoxItem Content="Electronics" Padding="20 0 0 0"/>
+                        <ComboBoxItem Content="HouseHold" Padding="20 0 0 0"/>
+                        <ComboBoxItem Content="Field" Padding="20 0 0 0"/>
+                        <ComboBoxItem Content="Other" Padding="20 0 0 0"/>
+                    </ComboBox>
+                    <!-- Purcharse -->
+                    <Separator Opacity="0.59" Margin="10 0"/>
+                    <TextBlock Text="MAINTENANCE INFORMATION" Foreground="White" Margin="10 10 0 20" FontSize="11"/>
+                    <!--Material Cost-->
+                    <TextBlock Text="Maintenance Cost" Foreground="White" Margin="10 6 0 3" FontSize="11"/>
+                    <TextBox Name="MaintenanceCost" Background="White" Foreground="Gray" Margin="10 0" Padding="1" FontSize="15" KeyUp="MaintenanceCost_KeyUp"/>
+                    <TextBlock Name="MCErr" Visibility="Hidden" Text="Name Must Be Atleast 5 Letter" Foreground="White" Margin="10 0 0 5" FontSize="10"/>
+                    <!--Purchased Date-->
+                    <TextBlock Text="Maintenance Date" Foreground="White" Margin="10 6 0 3" FontSize="11"/>
+                    <DatePicker Name="MaintenanceDate"  materialDesign:HintAssist.Hint="MM/dd/yyyy" Foreground="Gray" Background="White" Margin="10 0 10 0" Padding="7" FontSize="15" KeyUp="MaintenanceDate_KeyUp" SelectedDateChanged="MaintenanceDate_SelectedDateChanged"/>
+                    <TextBlock Name="MDErr" Visibility="Hidden" Text="Name Must Be Atleast 5 Letter" Foreground="White" Margin="10 0 0 5" FontSize="10"/>
+                    <StackPanel Orientation="Horizontal" Margin="10 15 0 3">
+                        <Button Name="UpdateButton" Background="White" BorderBrush="#7c0426" Foreground="#7c0246" Content="Update" Margin="0 0 5 0" Click="UpdateButton_Click"/>
+                        <Button Name="DeleteButton" Background="#ff0000" BorderBrush="#7c0426" Foreground="white" Content="Delete" Margin="0 0 5 0" Click="DeleteButton_Click"/>
+                        <Button Name="SaveButton" Background=" #0aa405" BorderBrush="#7c0426" Foreground="white" Content="Save" Margin="0 0 5 0" Click="SaveButton_Click"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </materialDesign:TransitioningContent>
+</UserControl>
